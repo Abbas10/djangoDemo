@@ -1,0 +1,43 @@
+python manage.py shell
+
+from polls.models import Choice, Question
+from django.utils import timezone
+
+
+Question.objects.all()
+
+q = Question(question_text='What name you like?', pub_date=timezone.now())
+q.save()
+
+q.id #1 
+q.was_published_recently() #True
+
+obj_question = Question.objects.get(pk=1)
+obj_question.choice_set.all() # []
+
+obj_question.choice_set.create(choice_text='Indian', votes=0)
+obj_question.choice_set.create(choice_text='American', votes=0)
+obj_question.choice_set.create(choice_text='Arebik', votes=0)
+obj_question.choice_set.create(choice_text='bla bla', votes=0)
+
+obj_choice = obj_question.choice_set.create(choice_text='Arebik', votes=0)
+obj_choice.question
+
+obj_question.choice_set.count()
+
+
+Choice.objects.filter(question__pub_date__year=current_year)
+obj_choice = obj_question.choice_set.filter(choice_text__startswith='bla)
+obj_choice.delete()
+
+
+
+
+
+
+
+
+
+
+
+

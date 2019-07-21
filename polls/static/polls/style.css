@@ -1,0 +1,38 @@
+li a {
+    color: green;
+}
+header, 
+.badge-secondary, .btn-primary,
+.btn-primary:hover,
+.custom-radio .custom-control-input:checked~.custom-control-label::before
+{
+    background-color: cadetblue;
+    border-color:cadetblue
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: cadetblue;
+    color:white
+  }
+  
+  
+  /* Custom page CSS
+  -------------------------------------------------- */
+  /* Not required for template or sticky footer method. */
+  .footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+    
+  .btn-primary:hover{
+    background-color: #2f7577;
+  }
+  .box-shadow {
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+  }
+  

@@ -1,9 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
 {% if latest_question_list %}
-<ul>
+
+
+<div class="my-3 p-3 bg-white rounded box-shadow">
+    <h4 class="border-bottom border-gray pb-2 mb-0">Questions</h4>
     {% for question in latest_question_list %}
-    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    <div class="media pt-3">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+        </p>
+    </div>
     {% endfor %}
-</ul>
-{% else %}
-<p>No polls are available.</p>
-{% endif %}
+    {% else %}
+    <div class="media pt-3">
+        <p class="media-body pb-3 mb-0 border-bottom border-gray">
+            No polls are available.
+        </p>
+    </div>
+    {% endif %}
+</div>
+
+
+
+
+{% endblock %}
