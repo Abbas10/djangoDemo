@@ -81,7 +81,9 @@ target/
 *.pot
 *.pyc
 __pycache__/
-local_settings.py
+local.py
+production.py
+staging.py
 
 .env
 db.sqlite3
