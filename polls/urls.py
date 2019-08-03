@@ -30,6 +30,12 @@ urlpatterns = [
 
     # ex: POST      /polls/questions/4
     path('questions/<int:question_id>/choices/',
-         apiviews.choices_view, name='choices_view')
+         apiviews.choices_view, name='choices_view'),
+
+    # ex: PATCH      /polls/questions/4/vote
+    path('questions/<int:question_id>/vote/',
+         apiviews.vote_view, name='vote_view')
+
+
 
 ]

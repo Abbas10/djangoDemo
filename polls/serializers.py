@@ -4,6 +4,7 @@ from .models import Question, Choice
 
 
 class ChoiceSerializer(serializers.Serializer):
+    #id = serializers.IntegerField(read_only=True)
     choice_text = serializers.CharField(max_length=200)
 
     def create(self, validated_data):
@@ -30,3 +31,7 @@ class QuestionListPageSerializer(serializers.Serializer):
 
 class QuestionDetailPageSerializer(QuestionListPageSerializer):
     choices = ChoiceSerializer(many=True, read_only=True)
+
+
+class VoteSerializer(serializers.Serializer):
+    choice_id = serializers.IntegerField()
