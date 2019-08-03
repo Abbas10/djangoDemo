@@ -20,7 +20,7 @@ urlpatterns = [
     # ex: /polls/questions/
     path('questions/', apiviews.questions_view, name='questions_view'),
     # ex: /polls/questions/4
-    path('questions/<int:question_id>/',
+    path('questions/<int:question_id>',
          apiviews.question_detail_view, name='question_detail_view')
 
 ]
