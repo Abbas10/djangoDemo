@@ -16,5 +16,11 @@ urlpatterns = [
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
 
+    ################################ API routes #########################
+    # ex: /polls/questions/
     path('questions/', apiviews.questions_view, name='questions_view'),
+    # ex: /polls/questions/4
+    path('questions/<int:question_id>/',
+         apiviews.question_detail_view, name='question_detail_view')
+
 ]
