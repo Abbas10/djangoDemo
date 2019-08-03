@@ -34,8 +34,11 @@ urlpatterns = [
 
     # ex: PATCH      /polls/questions/4/vote
     path('questions/<int:question_id>/vote/',
-         apiviews.vote_view, name='vote_view')
+         apiviews.vote_view, name='vote_view'),
 
+    # ex: GET       /polls/questions/4/result/
+    path('questions/<int:question_id>/result/',
+         apiviews.question_result_view, name='question_result_view')
 
 
 ]

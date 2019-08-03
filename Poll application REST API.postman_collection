@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "8b46e5b2-4079-4a6e-983b-c3270daba5e2",
+		"name": "Python assignment 3 (Poll application API)",
+		"description": "Author: Abbas Panjwani\nProject: Assignment-3 - Poll application\nDescription: Using this api consumer can create Question, Choice and vote for questions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Question ::  create question using FormData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "question_text",
+							"value": "What's color of sky?",
+							"type": "text"
+						},
+						{
+							"key": "pub_date",
+							"value": "2019-08-03",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question :: create  using Json Data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question_text\": \"which is the best phone in 2019\",\n    \"pub_date\": \"2019-08-03\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						""
+					]
+				},
+				"description": "Create an poll question using json data format"
+			},
+			"response": []
+		},
+		{
+			"name": "Question :: list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/polls/questions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question :: detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question :: update the question test",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"question_text\": \"which is the best phone in 2019?\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question :: delete question by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Question: Vote",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"choice_id\": 9\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/3/vote/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						"3",
+						"vote",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Choices :: create choice using jsondata",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"choice_text\": \"blue\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/3/choices/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						"3",
+						"choices",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Questions :: Poll result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/polls/questions/3/result",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"polls",
+						"questions",
+						"3",
+						"result"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

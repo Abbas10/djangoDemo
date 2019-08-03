@@ -8,7 +8,7 @@ from rest_framework import status
 
 from .models import Question, Choice
 from .serializers import QuestionListPageSerializer, ChoiceSerializer, \
-    QuestionDetailPageSerializer, VoteSerializer
+    QuestionDetailPageSerializer, VoteSerializer, QuestionResultPageSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -65,3 +65,10 @@ def vote_view(request, question_id):
         choice.save()
         return Response("Voted")
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def question_result_view(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    serializer = QuestionResultPageSerializer(question)
+    return Response(serializer.data)

@@ -35,3 +35,11 @@ class QuestionDetailPageSerializer(QuestionListPageSerializer):
 
 class VoteSerializer(serializers.Serializer):
     choice_id = serializers.IntegerField()
+
+
+class ChoiceSerializerWithVotes(ChoiceSerializer):
+    votes = serializers.IntegerField(read_only=True)
+
+
+class QuestionResultPageSerializer(QuestionListPageSerializer):
+    choices = ChoiceSerializerWithVotes(many=True, read_only=True)
